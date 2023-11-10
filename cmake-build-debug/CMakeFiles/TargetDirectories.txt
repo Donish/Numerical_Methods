@@ -1,0 +1,3 @@
+/mnt/c/Users/zhura/CLionProjects/Numerical_Methods/cmake-build-debug/CMakeFiles/Chislaki.dir
+/mnt/c/Users/zhura/CLionProjects/Numerical_Methods/cmake-build-debug/CMakeFiles/edit_cache.dir
+/mnt/c/Users/zhura/CLionProjects/Numerical_Methods/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/Chislaki.dir/main.cpp.o CMakeFiles/Chislaki.dir/matrix/matrix.cpp.o CMakeFiles/Chislaki.dir/Solution/LUdecomposition.cpp.o -o Chislaki 
