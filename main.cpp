@@ -20,12 +20,15 @@ int main()
     B.fill_matrix(fin);
     fin.close();
 
-    matrix AB = A.join_matrices(B);
-
+//    LU разложение
     LUdecomposition *solution;
     std::vector<matrix> LU;
+
     LU = solution->MakeSolution(A);
-    std::cout << LU[0] << std::endl << LU[1] << std::endl << LU[0] * LU[1] << std::endl;
+    for(auto &el : LU)
+    {
+        std::cout << el << std::endl;
+    }
 
     return 0;
 }

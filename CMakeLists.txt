@@ -7,7 +7,6 @@ add_executable(Chislaki
         main.cpp
         matrix/matrix.cpp
         matrix/matrix.h
-        Solution/Solution.h
         Solution/LUdecomposition.cpp
         Solution/LUdecomposition.h
 )

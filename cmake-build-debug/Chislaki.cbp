@@ -88,9 +88,6 @@
 		<Unit filename="/mnt/c/Users/zhura/CLionProjects/Numerical_Methods/Solution/LUdecomposition.h">
 			<Option target="Chislaki"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/zhura/CLionProjects/Numerical_Methods/Solution/Solution.h">
-			<Option target="Chislaki"/>
-		</Unit>
 		<Unit filename="/mnt/c/Users/zhura/CLionProjects/Numerical_Methods/main.cpp">
 			<Option target="Chislaki"/>
 		</Unit>

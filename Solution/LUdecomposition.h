@@ -1,15 +1,16 @@
 #ifndef LUDECOMPOSITION_H
 #define LUDECOMPOSITION_H
 
-#include "Solution.h"
+#include "../matrix/matrix.h"
 
-class LUdecomposition final : public Solution
+class matrix;
+
+class LUdecomposition final
 {
+
 public:
 
-    LUdecomposition() = default;
-
-    std::vector<matrix> MakeSolution(matrix A) override;
+    std::vector<matrix> MakeSolution(matrix A);
 
 };
 

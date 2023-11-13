@@ -4,7 +4,6 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
-//#include "../Solution/Solution.h"
 #include "../Solution/LUdecomposition.h"
 
 class matrix

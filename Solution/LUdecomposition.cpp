@@ -2,7 +2,6 @@
 
 std::vector<matrix> LUdecomposition::MakeSolution(matrix A)
 {
-    std::vector<matrix> result;
 
     if(A.get_row_size() != A.get_column_size())
     {
@@ -40,6 +39,7 @@ std::vector<matrix> LUdecomposition::MakeSolution(matrix A)
         }
     }
 
+    std::vector<matrix> result;
     result.push_back(L);
     result.push_back(U);
 
