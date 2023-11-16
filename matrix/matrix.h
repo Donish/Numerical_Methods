@@ -4,7 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
-#include "../Solution/LUdecomposition.h"
+#include <cmath>
 
 class matrix
 {
@@ -19,6 +19,8 @@ protected:
 
 public:
 
+    matrix();
+
     matrix(int row, int column);
 
     int get_row_size() const;
@@ -29,6 +31,12 @@ public:
 
     matrix join_matrices(const matrix& B);
 
+    static int find_pivot_row(const matrix &A, int col);
+
+    static void swap_rows(matrix &A, int idx1, int idx2);
+
+    static void transform_L(matrix &L, int idx1, int idx2);
+
 public:
 
     friend std::ostream& operator<<(std::ostream& out, const matrix& out_matrix);
@@ -36,6 +44,13 @@ public:
     friend matrix operator+(const matrix &A, const matrix &B);
 
     friend matrix operator*(const matrix &A, const matrix &B);
+
+    friend matrix operator*(const matrix &A, const double num);
+
+    friend matrix operator*(const double num, const matrix &A);
+
+    friend matrix operator~(const matrix &A);
+
 };
 
 #endif //MATRIX_H

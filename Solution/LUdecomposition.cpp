@@ -1,47 +1,156 @@
 #include "LUdecomposition.h"
 
-std::vector<matrix> LUdecomposition::MakeSolution(matrix A)
+LUdecomposition::LUdecomposition(matrix &A)
 {
+    L = matrix(A.get_row_size(), A.get_column_size());
+    U = matrix(A.get_row_size(), A.get_column_size());
+    P = matrix(A.get_row_size(), A.get_column_size());
+    permutations = 0;
 
-    if(A.get_row_size() != A.get_column_size())
+    make_LU_decomposition(A);
+}
+
+void LUdecomposition::make_LU_decomposition(const matrix &A)
+{
+    if (A.get_row_size() != A.get_column_size())
     {
-        throw std::invalid_argument("row size must equal column size");
+        return;
     }
-    matrix L(A.get_row_size(), A.get_column_size()), U(A.get_row_size(), A.get_column_size());
 
-    for(int i = 0; i < A.get_row_size(); i++)
+    U = A;
+
+    for (int i = 0; i < A.get_row_size(); i++)
     {
-        for(int j = 0; j < A.get_row_size(); j++)
+        L._data[i][i] = 1.0;
+        P._data[i][i] = 1.0;
+    }
+
+    for (int i = 0; i < A.get_row_size() - 1; i++)
+    {
+        int pivot = matrix::find_pivot_row(U, i);
+        if (pivot != i)
         {
-            U._data[0][i] = A._data[0][i];
-            L._data[i][0] = A._data[i][0] / U._data[0][0];
+            matrix::swap_rows(U, i, pivot);
+            matrix::swap_rows(P, i, pivot);
+            matrix::transform_L(L, i, pivot);
+            permutations++;
+        }
 
-            double sum = 0;
-            for(int k = 0; k < i; k++)
-            {
-                sum += L._data[i][k] * U._data[k][j];
-            }
-            U._data[i][j] = A._data[i][j] - sum;
+        for (int j = i + 1; j < A.get_row_size(); j++)
+        {
+            double factor = U._data[j][i] / U._data[i][i];
+            L._data[j][i] = factor;
 
-            if(i > j)
+            for (int k = i; k < A.get_row_size(); k++)
             {
-                L._data[j][i] = 0;
-            }
-            else
-            {
-                sum = 0;
-                for(int k = 0; k < i; k++)
-                {
-                    sum += L._data[j][k] * U._data[k][i];
-                }
-                L._data[j][i] = (A._data[j][i] - sum) / U._data[i][i];
+                U._data[j][k] -= U._data[i][k] * factor;
             }
         }
     }
+    P = ~P;
+}
 
-    std::vector<matrix> result;
-    result.push_back(L);
-    result.push_back(U);
+matrix LUdecomposition::make_SLAE_solution(matrix &b, double epsilon, int max_iters)
+{
+    if(get_determinant() == 0)
+    {
+        throw std::invalid_argument("no solutions for matrix");
+    }
 
-    return result;
+    b = ~P * b;
+
+    matrix y(b.get_row_size(), 1);
+    matrix x(b.get_row_size(), 1);
+
+    double tmp;
+    for(int i = 0; i < y.get_row_size(); i++)
+    {
+        tmp = 0;
+        for(int j = 0; j < i; j++)
+        {
+            tmp += L._data[i][j] * y._data[j][0];
+        }
+        y._data[i][0] = b._data[i][0] - tmp;
+    }
+
+    for(int i = x.get_row_size() - 1; i >= 0; i--)
+    {
+        tmp = 0;
+        for(int j = U.get_column_size() - 1; j >= 1; j--)
+        {
+            tmp += U._data[i][j] * x._data[j][0];
+        }
+        x._data[i][0] = (y._data[i][0] - tmp) / U._data[i][i];
+    }
+
+    return x;
+}
+
+double LUdecomposition::get_determinant()
+{
+    if(U.get_row_size() != U.get_column_size())
+    {
+        throw std::invalid_argument("matrix must be square");
+    }
+    double det = 1.0;
+
+    for(int i = 0; i < U.get_row_size(); i++)
+    {
+        det *= U._data[i][i];
+    }
+
+    return (permutations & 1) ? -det : det;
+}
+
+void LUdecomposition::print_L()
+{
+    std::cout << L << std::endl;
+}
+
+void LUdecomposition::print_U()
+{
+    std::cout << U << std::endl;
+}
+
+void LUdecomposition::print_P()
+{
+    std::cout << P << std::endl;
+}
+
+matrix LUdecomposition::get_inverse_matrix()
+{
+    if(L.get_row_size() != L.get_column_size())
+    {
+        throw std::invalid_argument("matrix must be square");
+    }
+    if(this->get_determinant() == 0)
+    {
+        throw std::runtime_error("determinant is zero");
+    }
+
+    matrix identity_matrix(L.get_row_size(), L.get_column_size());
+    for(int i = 0; i < identity_matrix.get_row_size(); i++)
+    {
+        identity_matrix._data[i][i] = 1.0;
+    }
+
+    matrix B(L.get_row_size(), 1);
+    matrix inverse_matrix(L.get_row_size(), L.get_column_size());
+
+    for(int i = 0; i < inverse_matrix.get_row_size(); i++)
+    {
+        for(int j = 0; j < L.get_column_size(); j++)
+        {
+            B._data[j][0] = identity_matrix._data[j][i];
+        }
+
+        matrix x = make_SLAE_solution(B, 0.001, 1000);
+        for(int j = 0; j < L.get_row_size(); j++)
+        {
+            inverse_matrix._data[j][i] = x._data[j][0];
+        }
+
+    }
+
+    return inverse_matrix;
 }

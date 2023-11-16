@@ -3,7 +3,6 @@
 #include "string"
 #include "matrix/matrix.h"
 #include "Solution/LUdecomposition.h"
-
 //7 вариант
 
 int main()
@@ -20,14 +19,32 @@ int main()
     B.fill_matrix(fin);
     fin.close();
 
-//    LU разложение
-    LUdecomposition *solution;
-    std::vector<matrix> LU;
+//    LU разложение, определитель, решение СЛАУ, обратная матрица
 
-    LU = solution->MakeSolution(A);
-    for(auto &el : LU)
+    auto *LU_dec = new LUdecomposition(A);
+    std::cout << "Matrix L:" << std::endl;
+    LU_dec->print_L();
+    std::cout << "Matrix U:" << std::endl;
+    LU_dec->print_U();
+    std::cout << "Matrix P:" << std::endl;
+    LU_dec->print_P();
+
+    try
     {
-        std::cout << el << std::endl;
+        matrix x = LU_dec->make_SLAE_solution(B, 0.001, 1000);
+        std::cout << "SLAE solution:" << std::endl;
+        std::cout << x << std::endl;
+
+        double det = LU_dec->get_determinant();
+        std::cout << "Determinant: " << det << std::endl;
+
+        matrix inverse_matrix = LU_dec->get_inverse_matrix();
+        std::cout << inverse_matrix << std::endl;
+    }
+    catch(std::exception &ex)
+    {
+        std::cout << ex.what() << std::endl;
+        return -1;
     }
 
     return 0;
