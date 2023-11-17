@@ -30,11 +30,11 @@ private:
 
 public:
 
-    void print_L();
+    matrix get_L();
 
-    void print_U();
+    matrix get_U();
 
-    void print_P();
+    matrix get_P();
 
 };
 

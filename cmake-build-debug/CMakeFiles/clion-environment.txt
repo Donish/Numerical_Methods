@@ -1,3 +1,4 @@
-ToolSet: Ubuntu 22.04.2 LTS (remote)Options: 
+ToolSet: w64 6.0 (local)@C:\MinGW\mingw64
+Options: 
 
-Options:
+Options:-DCMAKE_MAKE_PROGRAM=D:/JetBrains/CLion 2023.2.1/bin/ninja/win/x64/ninja.exe

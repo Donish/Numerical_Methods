@@ -1,4 +1,16 @@
-C:\Windows\system32\wsl.exe --distribution Ubuntu-22.04 --exec /bin/bash -c "export CMAKE_COLOR_DIAGNOSTICS=ON && export CLION_IDE=TRUE && export JETBRAINS_IDE=TRUE && cd /mnt/c/Users/zhura/CLionProjects/Numerical_Methods/cmake-build-debug && /usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G 'CodeBlocks - Unix Makefiles' -S /mnt/c/Users/zhura/CLionProjects/Numerical_Methods -B /mnt/c/Users/zhura/CLionProjects/Numerical_Methods/cmake-build-debug"
--- Configuring done
--- Generating done
--- Build files have been written to: /mnt/c/Users/zhura/CLionProjects/Numerical_Methods/cmake-build-debug
+"D:\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=D:/JetBrains/CLion 2023.2.1/bin/ninja/win/x64/ninja.exe" -G Ninja -S C:\Users\zhura\CLionProjects\Numerical_Methods -B C:\Users\zhura\CLionProjects\Numerical_Methods\cmake-build-debug
+-- The C compiler identification is GNU 8.1.0
+-- The CXX compiler identification is GNU 8.1.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: C:/MinGW/mingw64/bin/gcc.exe - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: C:/MinGW/mingw64/bin/c++.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done (1.7s)
+-- Generating done (0.0s)
+-- Build files have been written to: C:/Users/zhura/CLionProjects/Numerical_Methods/cmake-build-debug

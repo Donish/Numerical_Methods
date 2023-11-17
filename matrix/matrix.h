@@ -5,6 +5,7 @@
 #include <vector>
 #include <fstream>
 #include <cmath>
+#include <iomanip>
 
 class matrix
 {

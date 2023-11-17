@@ -93,7 +93,7 @@ std::ostream& operator<<(std::ostream& out, const matrix& out_matrix)
     {
         for(int j = 0; j < out_matrix._column_size; j++)
         {
-            out << out_matrix._data[i][j] << " ";
+            out << std::setw(12) << out_matrix._data[i][j] << " ";
         }
 
         out << std::endl;

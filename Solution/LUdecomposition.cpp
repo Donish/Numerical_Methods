@@ -102,19 +102,19 @@ double LUdecomposition::get_determinant()
     return (permutations & 1) ? -det : det;
 }
 
-void LUdecomposition::print_L()
+matrix LUdecomposition::get_L()
 {
-    std::cout << L << std::endl;
+    return L;
 }
 
-void LUdecomposition::print_U()
+matrix LUdecomposition::get_U()
 {
-    std::cout << U << std::endl;
+    return U;
 }
 
-void LUdecomposition::print_P()
+matrix LUdecomposition::get_P()
 {
-    std::cout << P << std::endl;
+    return P;
 }
 
 matrix LUdecomposition::get_inverse_matrix()
