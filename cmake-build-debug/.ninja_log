@@ -22,3 +22,10 @@
 956	1158	7219128508379074	Chislaki.exe	383e5f3c9ff2ae1f
 4	723	7219129100283071	CMakeFiles/Chislaki.dir/matrix/matrix.cpp.obj	ab5adc99153f28cf
 723	960	7219129102628456	Chislaki.exe	383e5f3c9ff2ae1f
+4	1498	7219195857938789	CMakeFiles/Chislaki.dir/main.cpp.obj	c62eaadc399449d9
+1499	1710	7219195860005144	Chislaki.exe	383e5f3c9ff2ae1f
+6	704	7219205316042077	CMakeFiles/Chislaki.dir/main.cpp.obj	c62eaadc399449d9
+13	862	7219205317623520	CMakeFiles/Chislaki.dir/Solution/LUdecomposition.cpp.obj	d7580c48ec671993
+862	1066	7219205319643511	Chislaki.exe	383e5f3c9ff2ae1f
+5	745	7219208836576834	CMakeFiles/Chislaki.dir/main.cpp.obj	c62eaadc399449d9
+745	909	7219208838178165	Chislaki.exe	383e5f3c9ff2ae1f

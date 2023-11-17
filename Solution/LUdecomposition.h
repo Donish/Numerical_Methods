@@ -18,7 +18,7 @@ public:
 
     explicit LUdecomposition(matrix &A);
 
-    matrix make_SLAE_solution(matrix &b, double epsilon, int max_iters);
+    matrix make_SLAE_solution(matrix &b);
 
     double get_determinant();
 

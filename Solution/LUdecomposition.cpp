@@ -50,7 +50,7 @@ void LUdecomposition::make_LU_decomposition(const matrix &A)
     P = ~P;
 }
 
-matrix LUdecomposition::make_SLAE_solution(matrix &b, double epsilon, int max_iters)
+matrix LUdecomposition::make_SLAE_solution(matrix &b)
 {
     if(get_determinant() == 0)
     {
@@ -144,7 +144,7 @@ matrix LUdecomposition::get_inverse_matrix()
             B._data[j][0] = identity_matrix._data[j][i];
         }
 
-        matrix x = make_SLAE_solution(B, 0.001, 1000);
+        matrix x = make_SLAE_solution(B);
         for(int j = 0; j < L.get_row_size(); j++)
         {
             inverse_matrix._data[j][i] = x._data[j][0];
