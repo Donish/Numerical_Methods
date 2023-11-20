@@ -182,3 +182,16 @@ matrix operator~(const matrix &A)
 
     return result;
 }
+
+bool operator==(const matrix &A, const matrix &B)
+{
+    if(A.get_row_size() != B.get_row_size() || B.get_column_size() != B.get_column_size()) return false;
+    if(A._data != B._data) return false;
+
+    return true;
+}
+
+bool operator!=(const matrix &A, const matrix &B)
+{
+    return !(A == B);
+}

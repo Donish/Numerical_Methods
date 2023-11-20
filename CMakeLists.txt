@@ -9,4 +9,6 @@ add_executable(Chislaki
         matrix/matrix.h
         Solution/LUdecomposition.cpp
         Solution/LUdecomposition.h
+        Solution/ThomasMethod.cpp
+        Solution/ThomasMethod.h
 )

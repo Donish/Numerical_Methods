@@ -3,6 +3,7 @@
 #include "string"
 #include "matrix/matrix.h"
 #include "Solution/LUdecomposition.h"
+#include "Solution/ThomasMethod.h"
 //7 вариант
 
 void task1()
@@ -52,9 +53,33 @@ void task1()
 
 }
 
+void task2()
+{
+    matrix A(5, 5);
+    matrix B(5, 1);
+    std::ifstream fin("matricestxt/Thomas_input.txt");
+    if(!fin.is_open())
+    {
+        std::cout << "File error!" << std::endl;
+        return;
+    }
+    std::ofstream fout("matricestxt/Thomas_output.txt");
+    A.fill_matrix(fin);
+    B.fill_matrix(fin);
+    fin.close();
+
+    auto *solution = new ThomasMethod(A);
+    matrix X = solution->make_SLAE_solution(B);
+
+    fout << "SLAE solution:" << std::endl << X << std::endl;
+    fout << "Check (A * X = B):" << std::endl << A << "*" << std::endl << X << "=" << std::endl << A * X << std::endl;
+    fout.close();
+}
+
 int main()
 {
-    task1();
+//    task1();
+    task2();
 
     return 0;
 }

@@ -11,6 +11,7 @@ class matrix
 {
 
     friend class LUdecomposition;
+    friend class ThomasMethod;
 
 protected:
 
@@ -51,6 +52,10 @@ public:
     friend matrix operator*(const double num, const matrix &A);
 
     friend matrix operator~(const matrix &A);
+
+    friend bool operator==(const matrix &A, const matrix &B);
+
+    friend bool operator!=(const matrix &A, const matrix &B);
 
 };
 
