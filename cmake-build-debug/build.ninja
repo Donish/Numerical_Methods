@@ -73,6 +73,24 @@ build CMakeFiles/Chislaki.dir/Solution/ThomasMethod.cpp.obj: CXX_COMPILER__Chisl
   OBJECT_DIR = CMakeFiles\Chislaki.dir
   OBJECT_FILE_DIR = CMakeFiles\Chislaki.dir\Solution
 
+build CMakeFiles/Chislaki.dir/Solution/AbstractIters.cpp.obj: CXX_COMPILER__Chislaki_unscanned_Debug C$:/Users/zhura/CLionProjects/Numerical_Methods/Solution/AbstractIters.cpp || cmake_object_order_depends_target_Chislaki
+  DEP_FILE = CMakeFiles\Chislaki.dir\Solution\AbstractIters.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Chislaki.dir
+  OBJECT_FILE_DIR = CMakeFiles\Chislaki.dir\Solution
+
+build CMakeFiles/Chislaki.dir/Solution/SeidelMethod.cpp.obj: CXX_COMPILER__Chislaki_unscanned_Debug C$:/Users/zhura/CLionProjects/Numerical_Methods/Solution/SeidelMethod.cpp || cmake_object_order_depends_target_Chislaki
+  DEP_FILE = CMakeFiles\Chislaki.dir\Solution\SeidelMethod.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Chislaki.dir
+  OBJECT_FILE_DIR = CMakeFiles\Chislaki.dir\Solution
+
+build CMakeFiles/Chislaki.dir/Solution/SimpleIterations.cpp.obj: CXX_COMPILER__Chislaki_unscanned_Debug C$:/Users/zhura/CLionProjects/Numerical_Methods/Solution/SimpleIterations.cpp || cmake_object_order_depends_target_Chislaki
+  DEP_FILE = CMakeFiles\Chislaki.dir\Solution\SimpleIterations.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Chislaki.dir
+  OBJECT_FILE_DIR = CMakeFiles\Chislaki.dir\Solution
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Chislaki
@@ -81,7 +99,7 @@ build CMakeFiles/Chislaki.dir/Solution/ThomasMethod.cpp.obj: CXX_COMPILER__Chisl
 #############################################
 # Link the executable Chislaki.exe
 
-build Chislaki.exe: CXX_EXECUTABLE_LINKER__Chislaki_Debug CMakeFiles/Chislaki.dir/main.cpp.obj CMakeFiles/Chislaki.dir/matrix/matrix.cpp.obj CMakeFiles/Chislaki.dir/Solution/LUdecomposition.cpp.obj CMakeFiles/Chislaki.dir/Solution/ThomasMethod.cpp.obj
+build Chislaki.exe: CXX_EXECUTABLE_LINKER__Chislaki_Debug CMakeFiles/Chislaki.dir/main.cpp.obj CMakeFiles/Chislaki.dir/matrix/matrix.cpp.obj CMakeFiles/Chislaki.dir/Solution/LUdecomposition.cpp.obj CMakeFiles/Chislaki.dir/Solution/ThomasMethod.cpp.obj CMakeFiles/Chislaki.dir/Solution/AbstractIters.cpp.obj CMakeFiles/Chislaki.dir/Solution/SeidelMethod.cpp.obj CMakeFiles/Chislaki.dir/Solution/SimpleIterations.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Chislaki.dir

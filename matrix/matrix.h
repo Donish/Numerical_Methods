@@ -12,6 +12,9 @@ class matrix
 
     friend class LUdecomposition;
     friend class ThomasMethod;
+    friend class AbstractIters;
+    friend class SeidelMethod;
+    friend class SimpleIterations;
 
 protected:
 

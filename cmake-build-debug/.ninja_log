@@ -1,16 +1,14 @@
 # ninja log v5
-5	745	7219208836576834	CMakeFiles/Chislaki.dir/main.cpp.obj	c62eaadc399449d9
-745	909	7219208838178165	Chislaki.exe	383e5f3c9ff2ae1f
-4	723	7219129100283071	CMakeFiles/Chislaki.dir/matrix/matrix.cpp.obj	ab5adc99153f28cf
-13	862	7219205317623520	CMakeFiles/Chislaki.dir/Solution/LUdecomposition.cpp.obj	d7580c48ec671993
-14	1671	7222035618981959	CMakeFiles/Chislaki.dir/main.cpp.obj	c62eaadc399449d9
-29	1687	7222035619141972	CMakeFiles/Chislaki.dir/Solution/ThomasMethod.cpp.obj	2f6aa84d70f1136f
+4	606	7222036249766316	CMakeFiles/Chislaki.dir/main.cpp.obj	c62eaadc399449d9
+708	909	7222043466252442	Chislaki.exe	5ea26f9b34971bce
 25	1689	7222035619162392	CMakeFiles/Chislaki.dir/matrix/matrix.cpp.obj	ab5adc99153f28cf
 19	1705	7222035619322384	CMakeFiles/Chislaki.dir/Solution/LUdecomposition.cpp.obj	d7580c48ec671993
-1705	2086	7222035623096209	Chislaki.exe	5ea26f9b34971bce
-4	622	7222035821608245	CMakeFiles/Chislaki.dir/main.cpp.obj	c62eaadc399449d9
-622	788	7222035823238577	Chislaki.exe	5ea26f9b34971bce
-4	606	7222036249766316	CMakeFiles/Chislaki.dir/main.cpp.obj	c62eaadc399449d9
-607	782	7222036251486211	Chislaki.exe	5ea26f9b34971bce
 4	707	7222043464281030	CMakeFiles/Chislaki.dir/Solution/ThomasMethod.cpp.obj	2f6aa84d70f1136f
-708	909	7222043466252442	Chislaki.exe	5ea26f9b34971bce
+6	2815	7227375901480928	CMakeFiles/Chislaki.dir/main.cpp.obj	c62eaadc399449d9
+21	2825	7227375901550931	CMakeFiles/Chislaki.dir/Solution/SeidelMethod.cpp.obj	b364975a6cb6c17e
+25	2829	7227375901601813	CMakeFiles/Chislaki.dir/Solution/AbstractIters.cpp.obj	9aee0a3b07163935
+30	2837	7227375901693230	CMakeFiles/Chislaki.dir/Solution/ThomasMethod.cpp.obj	2f6aa84d70f1136f
+11	2840	7227375901722997	CMakeFiles/Chislaki.dir/matrix/matrix.cpp.obj	ab5adc99153f28cf
+16	2845	7227375901772531	CMakeFiles/Chislaki.dir/Solution/LUdecomposition.cpp.obj	d7580c48ec671993
+2816	3411	7227375907453791	CMakeFiles/Chislaki.dir/Solution/SimpleIterations.cpp.obj	2583c221f0ed65f6
+3412	3801	7227375911303247	Chislaki.exe	2cc67d053197d710

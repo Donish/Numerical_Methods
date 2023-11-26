@@ -5,6 +5,11 @@ ThomasMethod::ThomasMethod(matrix &A) : A(A), a(A.get_row_size()), b(A.get_row_s
 
 matrix ThomasMethod::make_SLAE_solution(matrix &B)
 {
+    if(!validate_matrix())
+    {
+        throw std::invalid_argument("invalid matrix");
+    }
+
     a[0] = (-A._data[0][1]) / A._data[0][0];
     b[0] = B._data[0][0] / A._data[0][0];
 
@@ -26,4 +31,25 @@ matrix ThomasMethod::make_SLAE_solution(matrix &B)
     }
 
     return X;
+}
+
+bool ThomasMethod::validate_matrix() const
+{
+    if(fabs(A._data[0][0]) < fabs(A._data[0][1]) ||
+        fabs(A._data[A._row_size - 1][A._row_size - 1]) < fabs(A._data[A._row_size - 1][A._row_size - 2]))
+    {
+        return false;
+    }
+
+    if(A._data[0][0] == 0) return false;
+
+    for(int i = 1; i < A._row_size - 1; i++)
+    {
+        if(A._data[0][0] == 0) return false;
+        if(fabs(A._data[i][i]) < fabs(A._data[i][i - 1]) + fabs(A._data[i][i + 1])) return false;
+    }
+
+    if(A._data[A._row_size - 1][A._row_size - 1] == 0) return false;
+
+    return true;
 }

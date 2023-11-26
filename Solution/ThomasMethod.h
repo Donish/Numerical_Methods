@@ -17,6 +17,10 @@ public:
 
     matrix make_SLAE_solution(matrix &B);
 
+private:
+
+    bool validate_matrix() const;
+
 };
 
 

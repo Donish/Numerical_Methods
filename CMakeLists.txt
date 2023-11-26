@@ -11,4 +11,10 @@ add_executable(Chislaki
         Solution/LUdecomposition.h
         Solution/ThomasMethod.cpp
         Solution/ThomasMethod.h
+        Solution/AbstractIters.cpp
+        Solution/AbstractIters.h
+        Solution/SeidelMethod.cpp
+        Solution/SeidelMethod.h
+        Solution/SimpleIterations.cpp
+        Solution/SimpleIterations.h
 )
