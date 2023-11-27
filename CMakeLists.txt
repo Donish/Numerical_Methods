@@ -17,4 +17,6 @@ add_executable(Chislaki
         Solution/SeidelMethod.h
         Solution/SimpleIterations.cpp
         Solution/SimpleIterations.h
+        Eigenvalues/RotationMethod.cpp
+        Eigenvalues/RotationMethod.h
 )

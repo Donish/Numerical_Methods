@@ -4,6 +4,7 @@ SLAE solution (Seidel method):
           -9 
     -3.00003 
 
+Iterations (Seidel method): 6
 Check Seidel method (A * X = B):
           29            8            9           -9 
           -7          -25            0            9 
@@ -26,6 +27,7 @@ SLAE solution (Simple iterations method):
     -9.00018 
     -2.99987 
 
+Iterations (Simple iterations method): 16
 Check Simple iterations method (A * X = B):
           29            8            9           -9 
           -7          -25            0            9 

@@ -15,6 +15,7 @@ class matrix
     friend class AbstractIters;
     friend class SeidelMethod;
     friend class SimpleIterations;
+    friend class RotationMethod;
 
 protected:
 

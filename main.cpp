@@ -6,6 +6,7 @@
 #include "Solution/ThomasMethod.h"
 #include "Solution/SeidelMethod.h"
 #include "Solution/SimpleIterations.h"
+#include "Eigenvalues/RotationMethod.h"
 //7 вариант
 
 void task1()
@@ -13,7 +14,7 @@ void task1()
 
     matrix A(4, 4);
     matrix B(4, 1);
-    std::ifstream fin("matricestxt/input_matrix.txt");
+    std::ifstream fin("matricestxt/LU_input.txt");
     if(!fin.is_open())
     {
         std::cout << "File error!" << std::endl;
@@ -106,10 +107,46 @@ void task3()
         matrix Simple_X = SimpleSolution->make_SLAE_solution(B, 0.001, 1000);
 
         fout << "SLAE solution (Seidel method):" << std::endl << Seidel_X << std::endl;
+        fout << "Iterations (Seidel method): " << SeidelSolution->get_iterations() << std::endl;
         fout << "Check Seidel method (A * X = B):" << std::endl << A << "*" << std::endl << Seidel_X << "=" << std::endl << A * Seidel_X << std::endl;
 
         fout << "SLAE solution (Simple iterations method):" << std::endl << Simple_X << std::endl;
+        fout << "Iterations (Simple iterations method): " << SimpleSolution->get_iterations() << std::endl;
         fout << "Check Simple iterations method (A * X = B):" << std::endl << A << "*" << std::endl << Simple_X << "=" << std::endl << A * Simple_X << std::endl;
+    }
+    catch(std::exception &ex)
+    {
+        throw ex;
+    }
+
+    fout.close();
+}
+
+void task4()
+{
+    matrix A(3, 3);
+    std::ifstream fin("matricestxt/Rotation_input.txt");
+    if(!fin.is_open())
+    {
+        std::cout << "File error!" << std::endl;
+        return;
+    }
+    A.fill_matrix(fin);
+    fin.close();
+    std::ofstream fout("matricestxt/Rotation_output.txt");
+
+    auto *solution = new RotationMethod(A);
+    try
+    {
+        auto res = solution->solve(0.00001, 1000);
+
+        fout << "Eigenvectors:" << std::endl << res.first << std::endl;
+        fout << "Eigenvalues:" << std::endl;
+        for(auto &el : res.second)
+        {
+            fout << el << std::endl;
+        }
+        fout << std::endl << "Iterations: " << solution->get_iterations() << std::endl;
     }
     catch(std::exception &ex)
     {
@@ -124,6 +161,7 @@ int main()
 //    task1();
     task2();
     task3();
+    task4();
 
     return 0;
 }
