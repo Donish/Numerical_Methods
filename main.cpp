@@ -9,6 +9,36 @@
 #include "Eigenvalues/RotationMethod.h"
 //7 вариант
 
+void check(std::ostream &out, const matrix &A, const std::tuple<matrix, std::vector<double>> &answer)
+{
+    auto EigenVectors = std::get<0>(answer);
+    auto EigenValues = std::get<1>(answer);
+
+    for (int i = 0; i < EigenVectors.get_column_size(); ++i)
+    {
+        std::vector<double> EigenVector = EigenVectors.get_column(i);
+
+        std::vector<double> multiplyMatrixAndEigenVector = A * EigenVector;
+
+        out << "Eigen vector (";
+        for (int j = 0; j < EigenVector.size(); ++j) out << EigenVector[j] << ((j != EigenVector.size() - 1) ? ", " : ")^T ");
+        out << "and eigen values " << EigenValues[i] << std::endl;
+
+        out << "A * EigenVector" << std::endl << "(";
+        for (int j = 0; j < EigenVector.size(); ++j) out << multiplyMatrixAndEigenVector[i] << ((j != EigenVector.size() - 1) ? ", " : ")^T");
+
+        out << std::endl;
+
+        std::vector<double> multiplyEigenValueAndEigenVector(EigenVector.size());
+        for (int j = 0; j < EigenVector.size(); ++j) multiplyEigenValueAndEigenVector[j] = EigenValues[i] * EigenVector[j];
+
+        out << "EigenValue * EigenVector" << std::endl << "(";
+        for (int j = 0; j < EigenVector.size(); ++j) out << multiplyEigenValueAndEigenVector[i] << ((j != EigenVector.size() - 1) ? ", " : ")^T");
+
+        out << std::endl << std::endl;
+    }
+}
+
 void task1()
 {
 
@@ -124,7 +154,7 @@ void task3()
 
 void task4()
 {
-    matrix A(3, 3);
+    matrix A(4, 4);
     std::ifstream fin("matricestxt/Rotation_input.txt");
     if(!fin.is_open())
     {
@@ -139,14 +169,18 @@ void task4()
     try
     {
         auto res = solution->solve(0.00001, 1000);
+        matrix eigen_vectors = std::get<0>(res);
+        std::vector<double> eigen_values = std::get<1>(res);
 
-        fout << "Eigenvectors:" << std::endl << res.first << std::endl;
+        fout << "Eigenvectors:" << std::endl << eigen_vectors << std::endl;
         fout << "Eigenvalues:" << std::endl;
-        for(auto &el : res.second)
+        for(auto &el : eigen_values)
         {
             fout << el << std::endl;
         }
-        fout << std::endl << "Iterations: " << solution->get_iterations() << std::endl;
+        fout << std::endl << "Iterations: " << solution->get_iterations() << std::endl << std::endl;
+        check(fout, A, res);
+
     }
     catch(std::exception &ex)
     {
@@ -159,8 +193,8 @@ void task4()
 int main()
 {
 //    task1();
-    task2();
-    task3();
+//    task2();
+//    task3();
     task4();
 
     return 0;

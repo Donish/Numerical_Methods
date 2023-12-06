@@ -43,7 +43,13 @@ public:
 
     static void transform_L(matrix &L, int idx1, int idx2);
 
+    std::vector<double> get_column(int idx) const;
+
 public:
+
+    friend std::vector<double> operator*(const matrix &A, std::vector<double> &vec);
+
+    friend std::vector<double> operator*(std::vector<double> &vec, const matrix &A);
 
     friend std::ostream& operator<<(std::ostream& out, const matrix& out_matrix);
 

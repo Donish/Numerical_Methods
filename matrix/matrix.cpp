@@ -195,3 +195,30 @@ bool operator!=(const matrix &A, const matrix &B)
 {
     return !(A == B);
 }
+
+std::vector<double> matrix::get_column(int idx) const
+{
+    std::vector<double> result(_row_size);
+    for(int i = 0; i < _row_size; i++) result[i] = _data[i][idx];
+    return result;
+}
+
+std::vector<double> operator*(const matrix &A, std::vector<double> &vec)
+{
+    if (A._column_size != vec.size())
+    {
+        throw;
+    }
+
+    std::vector<double> C(A._row_size);
+
+    for (int i = 0; i < A._row_size; ++i)
+    {
+        for (int j = 0; j < A._column_size; ++j)
+        {
+            C[i] += A._data[i][j] * vec[j];
+        }
+    }
+
+    return C;
+}

@@ -17,7 +17,7 @@ public:
 
     long long int get_iterations() const;
 
-    std::pair<matrix, std::vector<double>> solve(double eps, int iters);
+    std::tuple<matrix, std::vector<double>> solve(double eps, int iters);
 
 private:
 
