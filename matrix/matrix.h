@@ -16,6 +16,7 @@ class matrix
     friend class SeidelMethod;
     friend class SimpleIterations;
     friend class RotationMethod;
+    friend class QR_method;
 
 protected:
 
@@ -66,6 +67,8 @@ public:
     friend bool operator==(const matrix &A, const matrix &B);
 
     friend bool operator!=(const matrix &A, const matrix &B);
+
+    friend matrix operator-(const matrix &A, const matrix &B);
 
 };
 

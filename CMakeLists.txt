@@ -19,4 +19,6 @@ add_executable(Chislaki
         Solution/SimpleIterations.h
         Eigenvalues/RotationMethod.cpp
         Eigenvalues/RotationMethod.h
+        Eigenvalues/QR_method.cpp
+        Eigenvalues/QR_method.h
 )

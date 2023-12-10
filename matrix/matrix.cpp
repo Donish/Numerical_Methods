@@ -222,3 +222,23 @@ std::vector<double> operator*(const matrix &A, std::vector<double> &vec)
 
     return C;
 }
+
+matrix operator-(const matrix &A, const matrix &B)
+{
+    if (A._row_size != B._row_size || A._column_size != B._column_size)
+    {
+        throw;
+    }
+
+    matrix C(A._row_size, A._column_size);
+
+    for (int i = 0; i < A._row_size; ++i)
+    {
+        for (int j = 0; j < A._column_size; ++j)
+        {
+            C._data[i][j] = A._data[i][j] - B._data[i][j];
+        }
+    }
+
+    return C;
+}

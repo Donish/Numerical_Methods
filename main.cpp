@@ -7,6 +7,7 @@
 #include "Solution/SeidelMethod.h"
 #include "Solution/SimpleIterations.h"
 #include "Eigenvalues/RotationMethod.h"
+#include "Eigenvalues/QR_method.h"
 //7 вариант
 
 void check(std::ostream &out, const matrix &A, const std::tuple<matrix, std::vector<double>> &answer)
@@ -190,12 +191,50 @@ void task4()
     fout.close();
 }
 
+void task5()
+{
+    matrix A(3, 3);
+    std::ifstream fin("matricestxt/QR_input.txt");
+    if(!fin.is_open())
+    {
+        std::cout << "File error!" << std::endl;
+        return;
+    }
+    A.fill_matrix(fin);
+    fin.close();
+    std::ofstream fout("matricestxt/QR_output.txt");
+
+    auto* solution = new QR_method(A);
+    try
+    {
+        auto res = solution->solve(0.0001, 1000);
+
+        fout << "EigenValues:" << std::endl;
+        for(auto &el : res)
+        {
+             fout << el << " ";
+        }
+        fout << std::endl << std::endl;
+
+        fout << "Matrix Q:" << std::endl << solution->get_Q() << std::endl;
+        fout << "Matrix R:" << std::endl << solution->get_R() << std::endl;
+        fout << "Iterations: " << solution->get_iterations() << std::endl << std::endl;
+    }
+    catch(std::exception &ex)
+    {
+        throw ex;
+    }
+
+    fout.close();
+}
+
 int main()
 {
 //    task1();
 //    task2();
 //    task3();
-    task4();
+//    task4();
+    task5();
 
     return 0;
 }
