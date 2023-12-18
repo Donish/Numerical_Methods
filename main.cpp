@@ -193,7 +193,7 @@ void task4()
 
 void task5()
 {
-    matrix A(3, 3);
+    matrix A(4, 4);
     std::ifstream fin("matricestxt/QR_input.txt");
     if(!fin.is_open())
     {
@@ -207,7 +207,7 @@ void task5()
     auto* solution = new QR_method(A);
     try
     {
-        auto res = solution->solve(0.0001, 1000);
+        auto res = solution->solve(0.00001, 1000);
 
         fout << "EigenValues:" << std::endl;
         for(auto &el : res)
